@@ -1,9 +1,9 @@
 {
-  "name": "test-bun-standalone-multiplatform",
+  "name": "bun-standalone-docker-bug-repro",
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "container:in": "docker run --rm -it --init --ulimit memlock=-1:-1 -v $(pwd)/dist:/app/dist bun-standalone-test bash",
+    "container": "docker run --rm -it --init --ulimit memlock=-1:-1 -v $(pwd)/dist:/app/dist bun-standalone-test bash",
     "build:with-container": "docker run --rm --init --ulimit memlock=-1:-1 -v $(pwd)/dist:/app/dist bun-standalone-test",
     "build:image": "docker build -t bun-standalone-test .",
     "build:app": "bun build index.ts --compile --outfile dist/my-app"
